@@ -1,55 +1,84 @@
 <?php
- 
-class EventosController extends BaseController {
- 
-    public function getIndex()
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class EventosController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $eventos = Eventos::get();
-        return View::make('eventos', compact('eventos'));
-    }
- 
-    public function getInserir()
-    {
-        return View::make('eventos_inserir');
-    }
- 
-    public function postInserir()
-    {
-        $eventos = new Eventos();
- 
-        $eventos->titulo   = Input::get('titulo');
-        $eventos->conteudo = Input::get('conteudo');
- 
-        $eventos->save();
- 
-        return Redirect::to('/eventos');
+        //
     }
 
-    public function getEditar($id)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        $eventos = Eventos::find($id);
-        return View::make('eventos_editar', compact('eventos'));
+        //
     }
- 
-    public function postEditar()
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        $eventos = Eventos::find(Input::get('id'));
- 
-        $eventos->titulo   = Input::get('titulo');
-        $eventos->conteudo = Input::get('conteudo');
- 
-        $eventos->save();
- 
-        return Redirect::to('/eventos');
+        //
     }
- 
-    public function getRemover($id)
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-        $eventos = Eventos::find($id);
-        $eventos->delete();
- 
-        return Redirect::to('/eventos');
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
-
-?>

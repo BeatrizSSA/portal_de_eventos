@@ -21,5 +21,5 @@ Route::get('/bia', function() {
 
 Route::get('/hello/{nammme}/{a123}', 'UserController@sayHello');
 
-Route::controller('eventos', 'EventosController');
+Route::resource('eventos', 'EventosController');
  

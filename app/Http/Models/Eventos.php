@@ -1,12 +1,10 @@
 <?php
 
-use Illuminate\app\Http\Models\Eventos;
- 
-class Eventos extends Eloquent
-{
- 
-	protected $table = 'outros_eventos';
-	protected $timestamps = false;
-}
+namespace App;
 
-?>
+use Illuminate\Database\Eloquent\Model;
+
+class Eventos extends Model
+{
+    //
+}
