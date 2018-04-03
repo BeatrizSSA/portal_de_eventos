@@ -21,26 +21,5 @@ Route::get('/bia', function() {
 
 Route::get('/hello/{nammme}/{a123}', 'UserController@sayHello');
 
-Route::get('/eventos/', function()
-{
-    $eventos = Eventos::get();
-    return View::make('eventos', compact('eventos'));
-});
+Route::controller('eventos', 'EventosController');
  
-// Criar um novo evento
-Route::get('/eventos/inserir', function()
-{
-    return View::make('eventos_inserir');
-});
-
-Route::post('/eventos/inserir', function()
-{
-    $eventos = new Eventos();
- 
-    $eventos->titulo   = Input::get('titulo');
-    $eventos->conteudo = Input::get('conteudo');
- 
-    $eventos->save();
- 
-    return Redirect::to('/eventos/');
-});
