@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EventosController extends Controller
-{
+class EventosController extends Controller {
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +12,8 @@ class EventosController extends Controller
      */
     public function index()
     {
-        //
+        $eventos = Eventos::orderBy('created_at', 'desc')->paginate(10);
+        return view('eventos.index',['eventos' => $eventos]);
     }
 
     /**
@@ -23,7 +23,7 @@ class EventosController extends Controller
      */
     public function create()
     {
-        //
+        return view('eventos.create');
     }
 
     /**
@@ -34,7 +34,11 @@ class EventosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $eventos = new Eventos;
+        $eventos->titulo        = $request->titulo;
+        $eventos->conteudo = $request->conteudo;
+        $eventos->save();
+        return redirect()->route('eventos.index')->with('message', 'Eventos created successfully!');
     }
 
     /**
@@ -56,7 +60,8 @@ class EventosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $eventos = Eventos::findOrFail($id);
+        return view('eventos.edit',compact('eventos'));
     }
 
     /**
@@ -68,7 +73,11 @@ class EventosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $eventos = Eventos::findOrFail($id);
+        $eventos->titulo        = $request->titulo;
+        $eventos->conteudo = $request->conteudo;
+        $eventos->save();
+        return redirect()->route('eventos.index')->with('message', 'Eventos updated successfully!');
     }
 
     /**
@@ -79,6 +88,8 @@ class EventosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $eventos = Eventos::findOrFail($id);
+        $eventos->delete();
+        return redirect()->route('eventos.index')->with('alert-success','Eventos hasbeen deleted!');
     }
 }
