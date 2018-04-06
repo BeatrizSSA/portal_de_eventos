@@ -13,7 +13,7 @@ class EventosController extends Controller {
     public function index()
     {
         $eventos = Eventos::orderBy('created_at', 'desc')->paginate(10);
-        return view('eventos.index',['eventos' => $eventos]);
+        return view('eventos_index.php',['eventos' => $eventos]);
     }
 
     /**
@@ -21,10 +21,10 @@ class EventosController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('eventos.create');
-    }
+    // public function create()
+    // {
+    //     return view('eventos.create');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -38,7 +38,7 @@ class EventosController extends Controller {
         $eventos->titulo        = $request->titulo;
         $eventos->conteudo = $request->conteudo;
         $eventos->save();
-        return redirect()->route('eventos.index')->with('message', 'Eventos created successfully!');
+        return redirect()->route('eventos_index.php')->with('message', 'Eventos created successfully!');
     }
 
     /**
@@ -61,7 +61,7 @@ class EventosController extends Controller {
     public function edit($id)
     {
         $eventos = Eventos::findOrFail($id);
-        return view('eventos.edit',compact('eventos'));
+        return view('eventos_edit.php',compact('eventos'));
     }
 
     /**
@@ -77,7 +77,7 @@ class EventosController extends Controller {
         $eventos->titulo        = $request->titulo;
         $eventos->conteudo = $request->conteudo;
         $eventos->save();
-        return redirect()->route('eventos.index')->with('message', 'Eventos updated successfully!');
+        return redirect()->route('eventos_index.php')->with('message', 'Eventos updated successfully!');
     }
 
     /**
@@ -90,6 +90,6 @@ class EventosController extends Controller {
     {
         $eventos = Eventos::findOrFail($id);
         $eventos->delete();
-        return redirect()->route('eventos.index')->with('alert-success','Eventos hasbeen deleted!');
+        return redirect()->route('eventos_index.php')->with('alert-success','Eventos hasbeen deleted!');
     }
 }

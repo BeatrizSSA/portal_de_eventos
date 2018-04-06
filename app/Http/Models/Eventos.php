@@ -7,6 +7,6 @@ class Eventos extends Model {
     
     protected $fillable = ['titulo','conteudo'];
     protected $guarded = ['id', 'created_at', 'update_at'];
-    protected $table = 'eventos-model';
+    protected $table = 'eventos';
 
 }
