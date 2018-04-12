@@ -44,7 +44,7 @@ return [
             'host'      => 'localhost',
             'database'  => 'laravel',
             'username'  => 'root',
-            'password'  => '123',
+            'password'  => 'ifpe',
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',

@@ -10,12 +10,10 @@ class EventosController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $eventos = Eventos::orderBy('created_at', 'desc')->paginate(10);
-        return view('eventos_index.php',['eventos' => $eventos]);
+    public function index($filter = null) {
+        $eventos = Eventos::getEvents($filter)->get();
+        return view('eventos.index')->with('eventos', $eventos);
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -38,7 +36,7 @@ class EventosController extends Controller {
         $eventos->titulo        = $request->titulo;
         $eventos->conteudo = $request->conteudo;
         $eventos->save();
-        return redirect()->route('eventos_index.php')->with('message', 'Eventos created successfully!');
+        return redirect()->route('indexEvent.php')->with('message', 'Eventos created successfully!');
     }
 
     /**
@@ -61,7 +59,7 @@ class EventosController extends Controller {
     public function edit($id)
     {
         $eventos = Eventos::findOrFail($id);
-        return view('eventos_edit.php',compact('eventos'));
+        return view('editEvent.php',compact('eventos'));
     }
 
     /**
@@ -77,7 +75,7 @@ class EventosController extends Controller {
         $eventos->titulo        = $request->titulo;
         $eventos->conteudo = $request->conteudo;
         $eventos->save();
-        return redirect()->route('eventos_index.php')->with('message', 'Eventos updated successfully!');
+        return redirect()->route('indexEvent.php')->with('message', 'Eventos updated successfully!');
     }
 
     /**
@@ -90,6 +88,6 @@ class EventosController extends Controller {
     {
         $eventos = Eventos::findOrFail($id);
         $eventos->delete();
-        return redirect()->route('eventos_index.php')->with('alert-success','Eventos hasbeen deleted!');
+        return redirect()->route('indexEvent.php')->with('alert-success','Eventos hasbeen deleted!');
     }
 }
