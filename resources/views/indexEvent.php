@@ -41,7 +41,7 @@
     <table class="table table-bordered">
         <tr>
             <th>Título</th>
-            <th>Detalhes</th>
+            <th>Conteúdo</th>
             <th>Alterar</th>
             <th>Excluir</th>
         </tr>

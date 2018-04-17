@@ -11,7 +11,7 @@ class EventosController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index($filter = null) {
-        $eventos = Eventos::getEvents($filter)->get();
+        $eventos = Eventos::getEventos($filter)->get();
         return view('eventos.index')->with('eventos', $eventos);
     }
     /**
