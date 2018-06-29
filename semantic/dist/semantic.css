@@ -586,10 +586,10 @@ h3,
 h4,
 h5 {
   font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
-  line-height: 1.28571429em;
-  margin: calc(2rem -  0.14285714em ) 0em 1rem;
+  line-height: 0;
+  margin: 0;
   font-weight: bold;
-  padding: 0em;
+  padding: 1em;
 }
 
 h1 {
@@ -5138,14 +5138,14 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
 
 .ui.container {
   display: block;
-  max-width: 100% !important;
+  max-width: 50% !important;
 }
 
 /* Mobile */
 
 @media only screen and (max-width: 767px) {
   .ui.container {
-    width: 100% !important;
+    width: 70% !important;
     margin-left: 1em !important;
     margin-right: 1em !important;
   }
@@ -8134,6 +8134,7 @@ i.huge.icons {
   line-height: 1;
   vertical-align: middle;
   font-size: 4em;
+  padding: 5%;
 }
 
 i.massive.icon,
@@ -18063,7 +18064,7 @@ ol.ui.horizontal.list li:before,
 }
 
 .ui.segment:first-child {
-  margin-top: 0em;
+  margin-top: 0;
 }
 
 .ui.segment:last-child {
@@ -23301,7 +23302,7 @@ ol.ui.horizontal.list li:before,
 ---------------*/
 
 .ui.menu .menu {
-  margin: 4%;
+  margin: 2%;
 }
 
 .ui.menu:not(.vertical) > .menu {
@@ -23571,7 +23572,6 @@ ol.ui.horizontal.list li:before,
   display: inline-block;
   vertical-align: middle;
   margin: -0.3em 0em;
-  width: 2.5em;
 }
 
 .ui.vertical.menu .item > img:not(.ui):only-child {
@@ -24360,7 +24360,7 @@ Floated Menu / Item
   box-shadow: none;
   -ms-flex-item-align: center;
   align-self: center;
-  margin: 4%;
+  margin: 2%;
   padding: 0.35714286em 0.5em;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
@@ -27672,7 +27672,7 @@ Floated Menu / Item
   background: #FFFFFF;
   padding: 0em;
   border: none;
-  border-radius: 0.28571429rem;
+  border-radius: 20px;
   -webkit-box-shadow: 0px 1px 3px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5;
   box-shadow: 0px 1px 3px 0px #D4D4D5, 0px 0px 0px 1px #D4D4D5;
   -webkit-transition: -webkit-box-shadow 0.1s ease, -webkit-transform 0.1s ease;
@@ -27716,7 +27716,7 @@ Floated Menu / Item
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0.875em 0.5em;
+  margin: 2%;
   float: none;
 }
 
@@ -27755,7 +27755,7 @@ Floated Menu / Item
 
 .ui.cards > .card > :only-child,
 .ui.card > :only-child {
-  border-radius: 0.28571429rem !important;
+  border-radius: 20px !important;
 }
 
 /*--------------
@@ -27770,7 +27770,8 @@ Floated Menu / Item
   -ms-flex: 0 0 auto;
   flex: 0 0 auto;
   padding: 0em;
-  background: rgba(0, 0, 0, 0.05);
+  background: #FFF;
+  border-radius: 20px;
 }
 
 .ui.cards > .card > .image > img,
@@ -27779,6 +27780,7 @@ Floated Menu / Item
   width: 100%;
   height: auto;
   border-radius: inherit;
+  padding: 5%;
 }
 
 .ui.cards > .card > .image:not(.ui) > img,
@@ -27867,6 +27869,7 @@ Floated Menu / Item
 .ui.cards > .card [class*="center aligned"],
 .ui.card [class*="center aligned"] {
   text-align: center;
+  font-size: 25px;
 }
 
 .ui.cards > .card [class*="right aligned"],
@@ -28156,6 +28159,8 @@ a.ui.card,
 .ui.link.card {
   -webkit-transform: none;
   transform: none;
+  padding-top: 2%;
+  padding-bottom: 2%;
 }
 
 .ui.cards a.card:hover,
@@ -28414,7 +28419,7 @@ a.ui.card:hover,
 }
 
 .ui.three.cards > .card {
-  width: calc( 33.33333333%  -  2em );
+  width: calc( 33.3%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
 }
