@@ -90,6 +90,7 @@ header,
 nav,
 section {
   display: block;
+  /*background-color: darkgreen;*/
 }
 
 /**
@@ -589,7 +590,7 @@ h5 {
   line-height: 0;
   margin: 0;
   font-weight: bold;
-  padding: 1em;
+  padding: initial;
 }
 
 h1 {
@@ -7972,8 +7973,9 @@ i.inverted.teal.icon {
 
 i.inverted.bordered.teal.icon,
 i.inverted.circular.teal.icon {
-  background-color: #00B5AD !important;
+  background-color: #0083b5 !important;
   color: #FFFFFF !important;
+  border-radius: 10px;
 }
 
 /* Blue */
@@ -18059,12 +18061,12 @@ ol.ui.horizontal.list li:before,
   box-shadow: 0px 1px 2px 0 rgba(34, 36, 38, 0.15);
   margin: 1rem 0em;
   padding: 1em 1em;
-  border-radius: 0.28571429rem;
+  border-radius: 10px;
   border: 1px solid rgba(34, 36, 38, 0.15);
 }
 
 .ui.segment:first-child {
-  margin-top: 0;
+  margin-top: 25%;
 }
 
 .ui.segment:last-child {
@@ -27707,7 +27709,6 @@ Floated Menu / Item
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: -0.875em -0.5em;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
@@ -27779,8 +27780,7 @@ Floated Menu / Item
   display: block;
   width: 100%;
   height: auto;
-  border-radius: inherit;
-  padding: 5%;
+  border-radius: 10px;
 }
 
 .ui.cards > .card > .image:not(.ui) > img,
@@ -28411,11 +28411,6 @@ a.ui.card:hover,
   width: calc( 50%  -  2em );
   margin-left: 1em;
   margin-right: 1em;
-}
-
-.ui.three.cards {
-  margin-left: -1em;
-  margin-right: -1em;
 }
 
 .ui.three.cards > .card {
