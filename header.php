@@ -17,7 +17,7 @@
     <div class="header item active">
       <img src="semantic/img/ifpe.png" alt="Logo" height="100" width="100"></div>
       <div class="right menu">
-        <a class="item ui">
+        <a class="item ui" href="index.php">
           Meus Eventos
         </a>
         <a class="ui item">
