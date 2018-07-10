@@ -1,0 +1,108 @@
+CREATE TABLE users (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	username VARCHAR(50) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	role VARCHAR(20) NOT NULL,
+	name VARCHAR(50) NOT NULL,
+	gender VARCHAR(50) NOT NULL,
+	phone INT(9) NOT NULL,
+	birthday DATETIME NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	zip_code VARCHAR(9) NOT NULL,
+	city VARCHAR(100) NOT NULL,
+	state VARCHAR(100) NOT NULL,
+	street VARCHAR(100) NOT NULL,
+	cell_phone INT(9) NOT NULL,
+	complement VARCHAR(100) NOT NULL,
+	degree_of_education VARCHAR(100) NOT NULL,
+	educational_institution VARCHAR(100) NOT NULL,
+	company VARCHAR(100) NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL
+);
+
+CREATE TABLE events (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	title VARCHAR(100) NOT NULL,
+	description VARCHAR(255) NOT NULL,
+	banners VARCHAR(50) NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL
+);
+
+CREATE TABLE users_events (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	user_id INT UNSIGNED NOT NULL,
+	event_id INT UNSIGNED NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL,
+	FOREIGN KEY (user_id) REFERENCES users (id),
+	FOREIGN KEY (event_id) REFERENCES events (id)
+);
+
+CREATE TABLE images (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	type VARCHAR(50) NOT NULL,
+	event_id INT UNSIGNED NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL,
+	FOREIGN KEY (event_id) REFERENCES events (id)
+);
+
+CREATE TABLE activities (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	description VARCHAR(255) NOT NULL,
+	event_id INT UNSIGNED NOT NULL,
+	partner_id INT UNSIGNED NOT NULL,
+	categories_id INT UNSIGNED NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL,
+	FOREIGN KEY (event_id) REFERENCES events (id),
+	FOREIGN KEY (partner_id) REFERENCES partners (id),
+	FOREIGN KEY (categories_id) REFERENCES categories (id)
+);
+
+CREATE TABLE registrations (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	user_id INT UNSIGNED NOT NULL,
+	event_id INT UNSIGNED NOT NULL,
+	checkin VARCHAR(10) NOT NULL CHECK (checkin IN('Participante Confirmado','Participante Não Confirmado','Participação Cancelada')),
+	certificate VARCHAR(50) NOT NULL,
+	role VARCHAR(20) NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL,
+	FOREIGN KEY (user_id) REFERENCES users (id),
+	FOREIGN KEY (event_id) REFERENCES events (id)
+);
+
+CREATE TABLE activities_registrations (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	activity_id INT UNSIGNED NOT NULL,
+	subscription_id INT UNSIGNED NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL,
+	FOREIGN KEY (activity_id) REFERENCES activities (id),
+	FOREIGN KEY (subscription_id) REFERENCES activities (id)
+);
+
+CREATE TABLE partners (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(50) NOT NULL,
+	educational_institution VARCHAR(100) NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL
+);
+
+CREATE TABLE categories (
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	lecture VARCHAR(100) NOT NULL,
+	short_course VARCHAR(100) NOT NULL,
+	workshop VARCHAR(100) NOT NULL,
+	scientific_work_show VARCHAR(100) NOT NULL,
+	technical_skills_competition VARCHAR(100) NOT NULL,
+	nerd_room VARCHAR(100) NOT NULL,
+	electronic_games VARCHAR(100) NOT NULL,
+	created DATETIME DEFAULT NULL,
+	modified DATETIME DEFAULT NULL
+);
+
