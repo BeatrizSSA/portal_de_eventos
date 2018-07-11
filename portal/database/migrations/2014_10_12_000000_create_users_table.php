@@ -27,7 +27,6 @@ class CreateUsersTable extends Migration
             $table->string('city', 100);
             $table->string('state', 100);
             $table->string('street', 100);
-            $table->string('state', 100);
             $table->integer('cell_phone', 9);
             $table->string('complement', 100);
             $table->string('degree_of_education', 100);

@@ -16,4 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('registrations','RegistrationsController');
-
+Route::resource('users','UsersController');
